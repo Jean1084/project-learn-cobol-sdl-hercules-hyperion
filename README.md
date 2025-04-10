@@ -1,5 +1,5 @@
-![SDL Hyperion](./readme/images/image_header_herculeshyperionSDL.png)  
-[![Build Status](https://travis-ci.org/SDL-Hercules-390/hyperion.svg?branch=master)](https://travis-ci.org/SDL-Hercules-390/hyperion)
+![SDL Hyperion](./images/image_header_herculeshyperionSDL.png)  
+[![Build Status](https://travis-ci.org/SDL-Hercules-390/hyperion.svg?branch=main)](https://travis-ci.org/SDL-Hercules-390/hyperion)
 
 ## SDL Hercules 4.x Hyperion
 
