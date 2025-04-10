@@ -1,0 +1,45 @@
+#! /bin/cat
+
+Trace "O"
+
+parse   version _ver
+parse   source  _src
+parse   source  . _how .
+_env    = Address()
+
+parse   var     _src . . _cmd
+_who    = filespec("n",_cmd)
+parse	var _who  _who "." .
+
+
+say _who " started   "
+say _who " version   " _ver
+say _who " source    " _src
+say _who " called as " _how
+say _who " HOSTENV   " _env
+say _who " date      " date()
+say _who " time      " time()
+
+if  _how = "COMMAND" then do
+    parse arg args
+    args = space(args)
+    argc = words(args)
+
+    if  args = "" then do
+        say _who "           " "No arguments given "
+    end
+    else do
+        say _who " args     " ">>>"args"<<<"
+    end
+end
+else if  _how = "SUBROUTINE" then do
+    say _who " arg( )    " arg()
+    do i = 1 to arg()
+        say _who " arg("i")    " arg(i)
+    end
+
+    say _who " ended     "
+end
+exit 0
+
+

@@ -6,11 +6,12 @@ Vagrant.configure("2") do |config|
       vm.vm.network "private_network", type: "dhcp"
       vm.vm.synced_folder ".", "/home/vagrant/workspace", type: "virtualbox"
       vm.vm.provider "virtualbox" do |vb|
-        vb.name = "cobol-lab"
-        vb.memory = 4096
-        vb.cpus = 4
+        vb.name = "lab-cobol-hercules"
+        vb.memory = 2048
+        vb.cpus = 2
       end
   
       vm.vm.provision "shell", path: "setup_project.sh"
+      vm.vm.provision "shell", path: "check_version.sh"
     end
   end  

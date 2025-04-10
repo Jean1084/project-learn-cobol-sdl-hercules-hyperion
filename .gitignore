@@ -4,3 +4,196 @@
 script_rm_clean.sh
 setup_project.sh
 check_version.sh
+main/.gitignore
+#########################################
+
+# PLEASE NOTE:
+
+# There is no need to add temporary files here when adding a new source
+# file as such files (including .dll and .so) are caught by the general
+# rules at the end of this file.
+
+# The only thing you need to add is an executable without extension.
+
+.DS_Store
+.deps/
+.libs/
+build/
+Makefile
+autogen.log
+config.log
+autoconf/compile
+/aclocal.m4
+/autom4te.cache
+/card2txt
+/cckd2ckd
+/cckd642ckd
+/cckdcdsk
+/cckdcdsk64
+/cckdcomp
+/cckdcomp64
+/cckddiag
+/cckddiag64
+/cckdmap
+/cckdswap
+/cckdswap64
+/cfba2fba
+/cfba642fba
+/ckd2cckd
+/ckd2cckd64
+/conspawn
+/config.cache
+/config.h
+/config.h.in~
+/config.status
+/convto64
+/dasdcat
+/dasdconv
+/dasdconv64
+/dasdcopy
+/dasdcopy64
+/dasdinit
+/dasdinit64
+/dasdisup
+/dasdload
+/dasdload64
+/dasdls
+/dasdpdsu
+/dasdseq
+/dasdser
+/dmap2hrc
+/dyncrypt
+/dyngui
+/dyngui.res
+/fba2cfba
+/fba2cfba64
+/hdasd
+/hdt1052c
+/hdt1403
+/hdt2703
+/hdt2880
+/hdt3088
+/hdt3270
+/hdt3420
+/hdt3505
+/hdt3525
+/hdt3705
+/hdtdummy
+/hdteq
+/hercifc
+/hdtptp
+/hdtqeth
+/hdttcpnje
+/hdtzfcp
+/hengine
+/herclin
+/hercules
+/hercules-*.tar.gz
+/hercules.def
+/hercules.exp
+/hetget
+/hetinit
+/hetmap
+/hetupd
+/hsys
+/libtool
+/makefile
+/htape
+/hutil
+/maketape
+/msvc.AMD64.bin
+/msvc.AMD64.cod
+/msvc.AMD64.map
+/msvc.AMD64.obj
+/msvc.AMD64.pdb
+/msvc.dllmod.bin
+/msvc.dllmod.cod
+/msvc.dllmod.map
+/msvc.dllmod.obj
+/msvc.dllmod.pdb
+/stamp-h
+/stamp-h.in
+/stamp-h1
+/tapecopy
+/tapemap
+/tapesplt
+/tfprint
+/tfswap
+/txt2card
+/vmfplc2
+/winbuild
+
+# /html/images/
+/html/images/.DS_Store
+/html/images/Thumbs.db
+
+# /intl/
+/intl/charset.alias
+/intl/libintl.h
+/intl/ref-add.sed
+/intl/ref-del.sed
+
+# /m4/
+
+# /man/
+
+# /po/
+/po/POTFILES
+/po/nl.gmo
+/po/de.gmo
+/po/remove-potcdate.sed
+/po/stamp-po
+
+# /util/
+
+# GIT Generics - Object Files
+*.lo
+*.la
+*.loT
+*.o
+
+# GIT Generics - Shared Objects (including Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# GIT Generics - Executables
+*.exe
+*.out
+*.app
+
+# Eclipse
+.project
+.cproject
+/.metadata
+/.settings
+
+# Visual Studio
+/*.aps
+/*.idc
+/*.pdb
+/*.psess
+/*BuildLog*
+/Hercules_VS*.opensdf
+/Hercules_VS*.sdf
+/Hercules_VS*.suo
+*.vcxproj.user
+.vs
+*.VC.db
+
+# Editors
+*.aus
+*.bak
+*~
+
+# QA Testing
+allTests.*
+
+# Dynamically generated files
+/AutoBuildCount.h
+/_nmake_pjj.bat
+/3211.txt
+3330-shadow_1.cckd64
+3380-shadow_1.cckd64
+3390-shadow_1.cckd64

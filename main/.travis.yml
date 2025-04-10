@@ -1,0 +1,90 @@
+language: c
+
+#
+jobs:
+  include:
+    - name: "Ubuntu 18.04 -- gcc 7.5.0"
+      os: linux
+      dist: bionic
+      env: MATRIX_EVAL="CC=gcc"
+
+    - name: "Ubuntu 18.04 -- Clang 7.0.0"
+      os: linux
+      dist: bionic
+      env: MATRIX_EVAL="CC=clang"
+
+    - name: "Ubuntu 20.04 -- gcc 9.3.0"
+      os: linux
+      dist: focal
+      env: MATRIX_EVAL="CC=gcc"
+
+#   - name: "Ubuntu 20.04 -- Clang 11"
+#     os: linux
+#     dist: focal
+#     env: MATRIX_EVAL="CC=clang-11"
+
+    - name: "macOS XCode 12.5 -- clang" # macOS 11.3
+      os: osx
+      osx_image: xcode12.5
+      env: MATRIX_EVAL="CC=clang"
+
+    - name: "macOS XCode 12.5 -- gcc" # macOS 11.3
+      os: osx
+      osx_image: xcode12.5
+      env: MATRIX_EVAL="CC=gcc"
+
+    - name: "macOS XCode 11.6 -- clang" # macOS 10.15.5
+      os: osx
+      osx_image: xcode11.6
+      env: MATRIX_EVAL="CC=clang"
+
+    - name: "macOS XCode 11.6 -- gcc" # macOS 10.15.5
+      os: osx
+      osx_image: xcode11.6
+      env: MATRIX_EVAL="CC=gcc"
+
+    - name: "macOS XCode 10.3 -- clang" # macOS 10.14.4
+      os: osx
+      osx_image: xcode10.3
+      env: MATRIX_EVAL="CC=clang"
+    
+    - name: "macOS XCode 10.3 -- gcc" # macOS 10.14.4
+      os: osx
+      osx_image: xcode10.3
+      env: MATRIX_EVAL="CC=gcc"
+
+    - name: "macOS XCode 9.4 -- clang" # macOS 10.13
+      os: osx
+      osx_image: xcode9.4
+      env: MATRIX_EVAL="CC=clang"
+
+    - name: "macOS XCode 9.4 -- gcc" # macOS 10.13
+      os: osx
+      osx_image: xcode9.4
+      env: MATRIX_EVAL="CC=gcc"
+
+#
+before_install:
+  - echo $TRAVIS_OS_NAME
+  - eval "${MATRIX_EVAL}"
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then echo $TRAVIS_DIST                                 ; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y regina-rexx libregina3-dev; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install -y binutils binutils-dev     ; fi
+# - 'if [ "$TRAVIS_DIST"   = "focal" ]; then sudo apt install -y clang-11; fi'
+
+#
+before_script:
+  - eval "${MATRIX_EVAL}"
+  - bash -c '${CC} --version'
+  - util/bldlvlck
+  - ./autogen.sh
+  - mkdir build
+  - cd build
+  - ../configure --enable-regina-rexx
+  - ./config.status --config
+  - bash -c '${CC} --version'
+
+#
+script:
+  - make -j 2
+  - make check
